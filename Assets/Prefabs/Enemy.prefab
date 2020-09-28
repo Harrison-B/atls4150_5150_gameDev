@@ -124,3 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyProjectile: {fileID: 3324506071920272763, guid: 601ca4132a281ca43b4b5fc59d0777b7,
     type: 3}
+  yspeed: 0.001
+  amplitude: 0.005
+  speed: 2
+  leftWall: -6.2
+  rightWall: 6.2

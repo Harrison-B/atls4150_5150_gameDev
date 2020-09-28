@@ -25,3 +25,5 @@ Started off with the branch of Professor Bethancourt's breakout clone, adding ev
 ### Game Development
 - Added capability for player to move anywhere on screen
 - Added vertical movement of enemies
+- Added indidivual enemy spawn and movement
+- Added side bounds for enemies

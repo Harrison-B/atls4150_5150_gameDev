@@ -7,7 +7,7 @@ public class PlayerScript : MonoBehaviour {
     private float     xPos;
     public float      xspeed = .03f;
 
-    private float     yPos;
+    private float     yPos = -4f;
     public float      yspeed = .03f;
 
     public float      leftWall, rightWall, topWall, bottomWall;

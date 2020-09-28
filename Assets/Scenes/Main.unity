@@ -437,8 +437,9 @@ MonoBehaviour:
   yOrigin: 4
   numRows: 10
   numColumns: 4
-  speed: 2
-  amplitude: 0.5
+  spawnHeight: 5.5
+  delay: 2
+  rate: 2
 --- !u!4 &519625895
 Transform:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519625893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 2, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -871,9 +872,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f8d44c242cd4bf2b49ad9c51e3668c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.03
+  xspeed: 0.03
+  yspeed: 0.03
   leftWall: -6.2
   rightWall: 6.2
+  topWall: 4
+  bottomWall: -4
   Projectile: {fileID: 458575497077060588, guid: 2f3d2e2dc63c7d1478b914240b1c6ce3,
     type: 3}
   healthbar: {fileID: 1384118657}

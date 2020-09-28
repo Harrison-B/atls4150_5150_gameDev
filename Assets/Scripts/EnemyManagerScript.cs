@@ -9,29 +9,42 @@ public class EnemyManagerScript : MonoBehaviour {
     public float xSpacing, ySpacing;
     public float xOrigin, yOrigin;
     public int numRows, numColumns;
-    public float speed = 2f;
-    public float amplitude = 0.5f;
+
+    public float spawnHeight = 1f;
+
+    public float delay = 2;
+    public float rate = 2;
     
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < numRows; i++) {
-            for (int j = 0; j < numColumns; j++) {
-                Transform go = Instantiate(brick);
-                go.transform.parent = this.transform;
-                
-                Vector2 loc = new Vector2(xOrigin + (i * xSpacing), yOrigin - (j * ySpacing));
-                go.transform.position = loc;
+        InvokeRepeating("Spawn", delay, rate);
 
-                SpriteRenderer sr = go.GetComponent<SpriteRenderer>();                
-            }
-        }
+
+        // for (int i = 0; i < numRows; i++) {
+        //     for (int j = 0; j < numColumns; j++) {
+        //         Transform go = Instantiate(brick);
+        //         go.transform.parent = this.transform;
+                
+        //         Vector2 loc = new Vector2(xOrigin + (i * xSpacing), yOrigin - (j * ySpacing));
+        //         go.transform.position = loc;
+
+        //         SpriteRenderer sr = go.GetComponent<SpriteRenderer>();                
+        //     }
+        // }
+    }
+
+    private void Spawn() {
+        // int i = Random.Range(0,100);
+        // if (i>10) {
+            Vector2 position = new Vector2(Random.Range(-8.0f, 8.0f), spawnHeight);
+            Instantiate(brick, position, Quaternion.identity );
+        // }
     }
 
     void Update () {
         // move side to side
-        float offset = Mathf.Sin(Time.time * speed) * amplitude / 2;
-        transform.position = new Vector2(offset, transform.position.y);
+        
     }
 
 }
