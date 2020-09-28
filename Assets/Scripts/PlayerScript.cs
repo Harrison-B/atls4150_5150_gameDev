@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour {
     private float     xPos;
-    public float      speed = .05f;
-    public float      leftWall, rightWall;
+    public float      xspeed = .03f;
+
+    private float     yPos;
+    public float      yspeed = .03f;
+
+    public float      leftWall, rightWall, topWall, bottomWall;
     private Rigidbody2D rb;
 
     public GameObject Projectile;
@@ -25,13 +29,25 @@ public class PlayerScript : MonoBehaviour {
     void Update() {
         if (Input.GetKey(KeyCode.LeftArrow)) {
             if (xPos > leftWall) {
-                xPos -= speed;
+                xPos -= xspeed;
             }
         }
 
         if (Input.GetKey(KeyCode.RightArrow)) {
             if (xPos < rightWall) {
-                xPos += speed;
+                xPos += xspeed;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            if (yPos < topWall) {
+                yPos += yspeed;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow)) {
+            if (yPos > bottomWall) {
+                yPos -= yspeed;
             }
         }
 
@@ -39,7 +55,7 @@ public class PlayerScript : MonoBehaviour {
             Instantiate(Projectile, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
         }
 
-        transform.localPosition = new Vector3(xPos, transform.position.y, 0);
+        transform.localPosition = new Vector3(xPos, yPos, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

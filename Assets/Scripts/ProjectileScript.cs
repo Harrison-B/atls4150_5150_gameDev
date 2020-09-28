@@ -9,6 +9,8 @@ public class ProjectileScript : MonoBehaviour
     private Rigidbody2D        rb;
 
     public int direction;
+
+    public GameObject explosion;
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "enemy" && direction == 1) {
+            Instantiate(explosion, other.gameObject.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
