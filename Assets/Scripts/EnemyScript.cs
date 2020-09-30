@@ -41,4 +41,10 @@ public class EnemyScript : MonoBehaviour
             Instantiate(enemyProjectile, new Vector2(transform.position.x, transform.position.y), Quaternion.identity );
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag =="wall") {
+            Destroy(this.gameObject);
+        }
+    }
 }
