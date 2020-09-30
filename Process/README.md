@@ -27,3 +27,7 @@ Started off with the branch of Professor Bethancourt's breakout clone, adding ev
 - Added vertical movement of enemies
 - Added indidivual enemy spawn and movement
 - Added side bounds for enemies
+
+## 9/30/2020
+- Added powerups that follow the player when collected
+- Changed how collisions with the player work to better support the snake mechanic
