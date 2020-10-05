@@ -98,10 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yspeed: 0.005
-  followSpeed: 0.02
+  followSpeed: 0.08
   isFollowing: 0
   position: 1
+  distanceFromPlayer: 0.8
+  distanceFromPowerup: 0.4
   followObject: {fileID: 0}
+  player: {fileID: 0}
 --- !u!50 &-3069669776803919804
 Rigidbody2D:
   serializedVersion: 4

@@ -31,3 +31,16 @@ Started off with the branch of Professor Bethancourt's breakout clone, adding ev
 ## 9/30/2020
 - Added powerups that follow the player when collected
 - Changed how collisions with the player work to better support the snake mechanic
+
+## 10/5/2020
+- Added ability for the apples to get hit and break off the chain after where they got hit
+- Put enemies on their own layer with player projectiles so that the powerups wouldn't hit the enemies
+- Changed player sprite to something that is not a block
+- Changed follow distance from player to be distance from the distance between powerups
+- Fixed bug where if only the last powerup was hit it didn't remove itself
+- If the last powerup is deleted, it tries to delete the player and throws an error (fixed)
+
+Power up Brainstorming:
+- Powerup that shoots its own projectiles randomly
+- Powerup that gives burst / spread shot but slows the player down
+- Powerup that adds regenerating sheild in front of the player
