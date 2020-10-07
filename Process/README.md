@@ -44,3 +44,9 @@ Power up Brainstorming:
 - Powerup that shoots its own projectiles randomly
 - Powerup that gives burst / spread shot but slows the player down
 - Powerup that adds regenerating sheild in front of the player
+
+## 10/7/2020
+- Added explision to powerups when they get hit
+- Got player feedback from Alexandria:
+    - When player and enemy collide something should happen
+- Added pineapple

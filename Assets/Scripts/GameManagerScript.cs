@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    public GameObject apple;
+    public GameObject apple, pineapple;
     public float powerSpawnHeight = 1f;
 
     public float powerDelay = 5;
     public float powerRate = 5;
+
+    private bool powerup = false;
 
 
     // Start is called before the first frame update
@@ -25,6 +27,12 @@ public class GameManagerScript : MonoBehaviour
 
     private void Spawn() {
         Vector2 position = new Vector2(Random.Range(-7.0f, 7.0f), powerSpawnHeight);
-        Instantiate(apple, position, Quaternion.identity );
+        if (powerup) {
+            Instantiate(apple, position, Quaternion.identity );
+            powerup = false;
+        } else {
+            Instantiate(pineapple, position, Quaternion.identity );
+            powerup = true;
+        }
     }
 }

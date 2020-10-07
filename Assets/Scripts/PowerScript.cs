@@ -23,6 +23,8 @@ public class PowerScript : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,11 @@ public class PowerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "enemyprojectile") {
             Debug.Log("Apple and projectile hit");
+
+            GameObject powerupExplosion = Instantiate (explosion, transform.position, transform.rotation, explosion.transform.parent);
+
+            powerupExplosion.transform.localScale = new Vector2(-0.5f, -0.5f);
+
             if (isFollowing) {
                 int tempnum = player.GetComponent<PlayerScript>().powerUps.Count - 1;
                 for (int n = tempnum; n + 2 > position; n-- ) {
