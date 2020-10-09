@@ -924,8 +924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xspeed: 0.03
   yspeed: 0.03
-  leftWall: -6.2
-  rightWall: 6.2
+  leftWall: -8.5
+  rightWall: 8.5
   topWall: 4
   bottomWall: -4
   Projectile: {fileID: 458575497077060588, guid: 2f3d2e2dc63c7d1478b914240b1c6ce3,

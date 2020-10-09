@@ -101,11 +101,14 @@ MonoBehaviour:
   followSpeed: 0.08
   isFollowing: 0
   position: 1
+  powerUpType: 1
   distanceFromPlayer: 0.8
   distanceFromPowerup: 0.4
   followObject: {fileID: 0}
   player: {fileID: 0}
   explosion: {fileID: 8991460247514849946, guid: 35fe691a04e4a8947ac07d9957f6208c,
+    type: 3}
+  projectile: {fileID: 458575497077060588, guid: 2f3d2e2dc63c7d1478b914240b1c6ce3,
     type: 3}
 --- !u!50 &-3069669776803919804
 Rigidbody2D:

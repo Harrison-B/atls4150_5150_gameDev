@@ -67,20 +67,22 @@ public class PlayerScript : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "powerup" && other.gameObject.GetComponent<PowerScript>().isFollowing == false)
+        if (other.gameObject.tag == "powerup")
         {
-            Debug.Log("Powerup Hit");
-            other.gameObject.GetComponent<PowerScript>().isFollowing = true;
-            other.gameObject.GetComponent<PowerScript>().position = powerUps.Count + 1;
+            if (other.gameObject.GetComponent<PowerScript>().isFollowing == false) {
+                //Debug.Log("Powerup Hit");
+                other.gameObject.GetComponent<PowerScript>().isFollowing = true;
+                other.gameObject.GetComponent<PowerScript>().position = powerUps.Count + 1;
+                other.transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);
 
-            if (powerUps.Count == 0) {
-                other.gameObject.GetComponent<PowerScript>().followObject = GameObject.FindWithTag("Player");
-            } else {
-                other.gameObject.GetComponent<PowerScript>().followObject = powerUps[powerUps.Count - 1];
+                if (powerUps.Count == 0) {
+                    other.gameObject.GetComponent<PowerScript>().followObject = GameObject.FindWithTag("Player");
+                } else {
+                    other.gameObject.GetComponent<PowerScript>().followObject = powerUps[powerUps.Count - 1];
+                }
+
+                powerUps.Add(other.gameObject);
             }
-
-
-            powerUps.Add(other.gameObject);
         }
     }
 }

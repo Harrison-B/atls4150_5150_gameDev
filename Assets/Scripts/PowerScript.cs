@@ -14,16 +14,13 @@ public class PowerScript : MonoBehaviour
     private float ypos;
 
     private float distance;
-
+    
+    public int powerUpType;
     public float distanceFromPlayer = 1f;
 
     public float distanceFromPowerup = 0.4f;
 
-    public GameObject followObject;
-
-    public GameObject player;
-
-    public GameObject explosion;
+    public GameObject followObject, player, explosion, projectile;
 
     // Start is called before the first frame update
     void Start()
@@ -42,16 +39,30 @@ public class PowerScript : MonoBehaviour
             if ((distance > distanceFromPowerup && followObject != player) || (distance > distanceFromPlayer && followObject == player)) {
                 transform.position = Vector2.MoveTowards(transform.position, followObject.transform.position, followSpeed);
             }
+
+            if (powerUpType == 1) {
+                int i = Random.Range(0,400);
+                if (i >= 399) {
+                    Debug.Log(i);
+                    Instantiate(projectile, new Vector2(transform.position.x, transform.position.y), Quaternion.identity );
+                }
+            }
         }
+        //else {
+        //     if (followObject.Equals(null)) {
+        //         Destroy(this.gameObject);
+        //     }
+        // }
+
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Player" && isFollowing == false){
             //Debug.Log("we hit the player");
-            transform.position = new Vector2(other.transform.position.x, other.transform.position.y - ypos);
+            //transform.position = new Vector2(other.transform.position.x, other.transform.position.y - ypos);
         }
 
-        if (other.gameObject.tag =="wall") {
+        if (!isFollowing && other.gameObject.tag =="wall") {
             Destroy(this.gameObject);
         }
     }
@@ -70,7 +81,7 @@ public class PowerScript : MonoBehaviour
                     Debug.Log("   Deleting # " + n);
                     GameObject temp = player.GetComponent<PlayerScript>().powerUps[n];
                     player.GetComponent<PlayerScript>().powerUps.Remove(temp);
-                    Destroy(temp);
+                    Destroy(temp.gameObject);
                 }
             }
         }
