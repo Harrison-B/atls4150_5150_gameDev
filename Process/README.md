@@ -54,3 +54,10 @@ Power up Brainstorming:
 ## 10/8/2020
 - Found cause of bug that would cause the powerups to start floating by themselves in the void while picked up. It looks like it was an issue with them being deleted when touching a wall when following the player. Disabled them deleting themselves when they touch a wall and are following the player.
 - Added apple's ability to shoot and pineapples ability to add burst shoot
+
+## 10/9/2020
+- Added menu
+- Added pinapple powerup ability
+- Decreased frequency of apple shot (major balancing still needed)
+- Randomized powerup dispense
+- Fixed projectiles not self deleting

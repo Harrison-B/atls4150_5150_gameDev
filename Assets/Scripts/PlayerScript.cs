@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour {
     public float      xspeed = .03f;
     private float     yPos = -4f;
     public float      yspeed = .03f;
-    public float      leftWall, rightWall, topWall, bottomWall;
+    public float      leftWall, rightWall, topWall, bottomWall, pineappleCount;
     private Rigidbody2D rb;
     public GameObject Projectile;
     public Image healthbar;
@@ -51,6 +51,16 @@ public class PlayerScript : MonoBehaviour {
 
         if (Input.GetKeyDown(fireKey)) {
             Instantiate(Projectile, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
+
+            if (pineappleCount > 0){
+                for (int i = 1; i <= pineappleCount; i++) {
+                    if(i%2 == 0){
+                        Instantiate(Projectile, new Vector2(transform.position.x - (-0.1f * (i - 0.5f)), transform.position.y + 0.5f), Quaternion.identity);
+                    }else{
+                        Instantiate(Projectile, new Vector2(transform.position.x - (0.1f * (i + 0.5f)), transform.position.y + 0.5f), Quaternion.identity);
+                    }
+                }
+            }
         }
 
         transform.localPosition = new Vector3(xPos, yPos, 0);
@@ -79,6 +89,10 @@ public class PlayerScript : MonoBehaviour {
                     other.gameObject.GetComponent<PowerScript>().followObject = GameObject.FindWithTag("Player");
                 } else {
                     other.gameObject.GetComponent<PowerScript>().followObject = powerUps[powerUps.Count - 1];
+                }
+
+                if (other.gameObject.name == "Pineapple(Clone)") {
+                    pineappleCount++;
                 }
 
                 powerUps.Add(other.gameObject);

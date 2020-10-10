@@ -41,18 +41,13 @@ public class PowerScript : MonoBehaviour
             }
 
             if (powerUpType == 1) {
-                int i = Random.Range(0,400);
-                if (i >= 399) {
+                int i = Random.Range(0,600);
+                if (i >= 599) {
                     Debug.Log(i);
                     Instantiate(projectile, new Vector2(transform.position.x, transform.position.y), Quaternion.identity );
                 }
             }
         }
-        //else {
-        //     if (followObject.Equals(null)) {
-        //         Destroy(this.gameObject);
-        //     }
-        // }
 
     }
 
@@ -81,6 +76,11 @@ public class PowerScript : MonoBehaviour
                     Debug.Log("   Deleting # " + n);
                     GameObject temp = player.GetComponent<PlayerScript>().powerUps[n];
                     player.GetComponent<PlayerScript>().powerUps.Remove(temp);
+
+                    if (temp.name == "Pineapple(Clone)") {
+                            player.GetComponent<PlayerScript>().pineappleCount--;
+                    }
+
                     Destroy(temp.gameObject);
                 }
             }
