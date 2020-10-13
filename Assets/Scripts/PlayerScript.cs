@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class PlayerScript : MonoBehaviour {
     private float     xPos;
     public float      xspeed = .03f;
@@ -14,6 +15,7 @@ public class PlayerScript : MonoBehaviour {
     public Image healthbar;
     public KeyCode fireKey;
     public float health = 1f;
+    public Animator animator;
 
     public List<GameObject> powerUps;
 
@@ -24,29 +26,40 @@ public class PlayerScript : MonoBehaviour {
     }
 
     // Update is called once per frame
+    private bool isMoving = false;
+
     void Update() {
+
         if (Input.GetKey(KeyCode.LeftArrow)) {
+            isMoving = true;
             if (xPos > leftWall) {
                 xPos -= xspeed;
             }
         }
 
         if (Input.GetKey(KeyCode.RightArrow)) {
+            isMoving = true;
             if (xPos < rightWall) {
                 xPos += xspeed;
             }
         }
 
         if (Input.GetKey(KeyCode.UpArrow)) {
+            isMoving = true;
             if (yPos < topWall) {
                 yPos += yspeed;
             }
         }
 
         if (Input.GetKey(KeyCode.DownArrow)) {
+            isMoving = true;
             if (yPos > bottomWall) {
                 yPos -= yspeed;
             }
+        }
+
+        if(!Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) ) {
+            isMoving = false;
         }
 
         if (Input.GetKeyDown(fireKey)) {
@@ -64,6 +77,7 @@ public class PlayerScript : MonoBehaviour {
         }
 
         transform.localPosition = new Vector3(xPos, yPos, 0);
+        animator.SetBool("isMoving", isMoving);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

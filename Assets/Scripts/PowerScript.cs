@@ -43,7 +43,7 @@ public class PowerScript : MonoBehaviour
             if (powerUpType == 1) {
                 int i = Random.Range(0,600);
                 if (i >= 599) {
-                    Debug.Log(i);
+                    // Debug.Log(i);
                     Instantiate(projectile, new Vector2(transform.position.x, transform.position.y), Quaternion.identity );
                 }
             }

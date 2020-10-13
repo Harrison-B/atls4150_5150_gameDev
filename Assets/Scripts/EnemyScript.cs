@@ -12,6 +12,8 @@ public class EnemyScript : MonoBehaviour
     public float speed = 2f;
     public float      leftWall, rightWall;
 
+    public float fireChance = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +38,7 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void Fire() {
-        int i = Random.Range(0,100);
-        if (i>20) {
+        if (Random.Range(0,100) > fireChance) {
             Instantiate(enemyProjectile, new Vector2(transform.position.x, transform.position.y), Quaternion.identity );
         }
     }

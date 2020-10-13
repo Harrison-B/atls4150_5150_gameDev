@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManagerScript : MonoBehaviour {
-    public Transform brick;
+    public GameObject blueEnemy, redEnemy, greenEnemy;
     public Color[] brickColors;
 
     public float xSpacing, ySpacing;
@@ -38,7 +38,7 @@ public class EnemyManagerScript : MonoBehaviour {
         // int i = Random.Range(0,100);
         // if (i>10) {
             Vector2 position = new Vector2(Random.Range(-8.0f, 8.0f), spawnHeight);
-            Instantiate(brick, position, Quaternion.identity );
+            Instantiate(blueEnemy, position, Quaternion.identity );
         // }
     }
 

@@ -61,3 +61,10 @@ Power up Brainstorming:
 - Decreased frequency of apple shot (major balancing still needed)
 - Randomized powerup dispense
 - Fixed projectiles not self deleting
+
+## 10/12/2020
+- Added new player sprite and animation
+
+## 10/13/2020
+- Added new enemy sprites
+- 
