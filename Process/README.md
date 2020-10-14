@@ -47,9 +47,12 @@ Power up Brainstorming:
 
 ## 10/7/2020
 - Added explision to powerups when they get hit
-- Got player feedback from Alexandria:
-    - When player and enemy collide something should happen
 - Added pineapple
+
+### Feedback from playtest
+- Got player feedback from Alexandria:
+    - When player and enemy collide something should happen (implemented)
+    - Enemies don't spawn fast enough
 
 ## 10/8/2020
 - Found cause of bug that would cause the powerups to start floating by themselves in the void while picked up. It looks like it was an issue with them being deleted when touching a wall when following the player. Disabled them deleting themselves when they touch a wall and are following the player.
@@ -70,3 +73,4 @@ Power up Brainstorming:
 - Added enemy variance
 - Added infinite background
 - Added enemy collisions
+- Added scoring
