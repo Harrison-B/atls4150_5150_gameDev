@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5266006254193644624, guid: 06b66791e841344968a365c42e0767a6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b653f33cb4e2b40479d286602a6e3894, type: 2}
     - target: {fileID: -181026744262881290, guid: 06b66791e841344968a365c42e0767a6,
         type: 3}
       propertyPath: amplitude

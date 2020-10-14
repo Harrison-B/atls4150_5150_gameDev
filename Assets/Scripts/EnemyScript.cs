@@ -17,8 +17,8 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float delay = Random.Range(2f, 10f);
-        float rate = Random.Range(2f, 8f);
+        float delay = Random.Range(2f, 5f);
+        float rate = Random.Range(0.5f, 3f);
         InvokeRepeating("Fire", delay, rate);
     }
 

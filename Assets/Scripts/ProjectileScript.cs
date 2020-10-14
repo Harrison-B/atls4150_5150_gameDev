@@ -32,6 +32,7 @@ public class ProjectileScript : MonoBehaviour
             Instantiate(explosion, other.gameObject.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             Destroy(this.gameObject);
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManagerScript>().score += 10;
         }
 
         if (other.gameObject.tag == "Player"){

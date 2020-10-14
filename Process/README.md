@@ -67,4 +67,6 @@ Power up Brainstorming:
 
 ## 10/13/2020
 - Added new enemy sprites
-- 
+- Added enemy variance
+- Added infinite background
+- Added enemy collisions

@@ -11,6 +11,7 @@ TagManager:
   - enemy
   - enemyprojectile
   - powerup
+  - gamemanager
   layers:
   - Default
   - TransparentFX

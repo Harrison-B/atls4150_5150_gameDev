@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject apple, pineapple, blueEnemy, greenEnemy, redEnemy;
@@ -17,6 +17,11 @@ public class GameManagerScript : MonoBehaviour
 
     public float gameProgress = 0;
 
+    public int score = 0;
+    public Text scoreText;
+
+    public bool isGameOver = false;
+
 
 
     // Start is called before the first frame update
@@ -31,17 +36,23 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        gameProgress++;
+        scoreText.text = score.ToString();
+
+        if (!isGameOver){
+            gameProgress++;
+        } else {
+
+        }
 
         if (gameProgress == 1000) {
             enemyRate = 4;
-        } else if (gameProgress == 3000) {
+        } else if (gameProgress == 1500) {
             enemyRate = 3;
             Invoke("SpawnGreenEnemy", 2f);
-        } else if (gameProgress == 5000) {
+        } else if (gameProgress == 3000) {
             enemyRate = 2;
             Invoke("SpawnRedEnemy", 2f);
-        } else if (gameProgress == 80000) {
+        } else if (gameProgress == 5000) {
             enemyRate = 1;
         }
     }

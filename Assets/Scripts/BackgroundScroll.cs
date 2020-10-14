@@ -39,21 +39,22 @@ public class BackgroundScroll : MonoBehaviour
 
     void repositionBackground() {
         
-        foreach (GameObject obj in backgrounds) {
-            obj.transform.position = new Vector2 (obj.transform.position.x, obj.transform.position.y - 0.0025f);
+        if (!GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManagerScript>().isGameOver) {
+            foreach (GameObject obj in backgrounds) {
+                obj.transform.position = new Vector2 (obj.transform.position.x, obj.transform.position.y - 0.0025f);
+            }
+
+            if (backgrounds[backgrounds.Count - 1].transform.position.y < 1) {
+                GameObject firstChild = backgrounds[0].gameObject;
+                GameObject lastChild = backgrounds[1].gameObject;
+                float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.y;
+
+                firstChild.transform.position = new Vector2(lastChild.transform.position.x, lastChild.transform.position.y - 0.05f + halfObjectWidth * 2);
+
+                backgrounds[0] = lastChild;
+                backgrounds[1] = firstChild;
+            }
         }
-
-        if (backgrounds[backgrounds.Count - 1].transform.position.y < 1) {
-            GameObject firstChild = backgrounds[0].gameObject;
-            GameObject lastChild = backgrounds[1].gameObject;
-            float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.y;
-
-            firstChild.transform.position = new Vector2(lastChild.transform.position.x, lastChild.transform.position.y - 0.05f + halfObjectWidth * 2);
-
-            backgrounds[0] = lastChild;
-            backgrounds[1] = firstChild;
-        }
-
 
 
 

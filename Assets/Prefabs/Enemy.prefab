@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1909963545385241430}
   - component: {fileID: -181026744262881290}
   - component: {fileID: 4894697294229839050}
-  m_Layer: 8
+  - component: {fileID: -5266006254193644624}
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -131,6 +132,7 @@ MonoBehaviour:
   speed: 2
   leftWall: -8
   rightWall: 8
+  fireChance: 10
 --- !u!50 &4894697294229839050
 Rigidbody2D:
   serializedVersion: 4
@@ -152,3 +154,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-5266006254193644624
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909963545385241432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0115f50ed3167694a93541adb2a9159f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
